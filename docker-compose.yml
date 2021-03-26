@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 # what are all the images it needs to build and run in containers
 # services ~ containers
