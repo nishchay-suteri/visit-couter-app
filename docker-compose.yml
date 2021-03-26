@@ -1,0 +1,13 @@
+version: '3'
+
+# what are all the images it needs to build and run in containers
+# services ~ containers
+services:
+  redis-server: # name of the service.. any name
+    image: "redis" # use "redis" image from Dockerhub
+  node-app:
+    build: . # use the dockerfile in current directory to build
+    ports: # which ports we want to expose
+      - "8081:8081" # <local_machine_port>:<container_port>
+# NOTE: defining the containers like above inside docker-compose.yml, docker compose will automatically connect these two containers
+
