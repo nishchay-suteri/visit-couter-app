@@ -6,6 +6,10 @@ services:
   redis-server: # name of the service.. any name
     image: "redis" # use "redis" image from Dockerhub
   node-app:
+    restart: on-failure
+    # restart: <policy>
+    # <policy>: "no": Never attempt to restart(default policy), always: if container stops "for any reason", on-failure: if container stops with an erro code(code other that 0.. 0 means OK)
+    # policy "no" is in quotes since no in yml file is a keyword considered as false. But we want to specify policy as string.
     build: . # use the dockerfile in current directory to build
     ports: # which ports we want to expose
       - "8081:8081" # <local_machine_port>:<container_port>
